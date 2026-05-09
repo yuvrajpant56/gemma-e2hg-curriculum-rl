@@ -1,6 +1,6 @@
 ---
 license: apache-2.0
-base_model: google/gemma-3-1b-it
+base_model: google/gemma-4-E4B-it
 tags:
 - gemma
 - grpo
@@ -37,7 +37,7 @@ The task is simple but strict: given a target number and a list of numbers, the 
 
 ## Base Model
 
-`google/gemma-3-1b-it`
+`google/gemma-4-E4B-it`
 
 ## Training Method
 
@@ -117,6 +117,22 @@ This suggests that future work should improve:
 - Answer-first or verifier-guided decoding
 
 This adapter should be viewed as a research artifact rather than a production-ready math solver.
+
+## How to Train the Model
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/yuvrajpant56/gemma-e2hg-curriculum-rl.git
+cd gemma-e2hg-curriculum-rl
+conda create -n gemma_grpo python=3.10 -y
+conda activate gemma_grpo
+pip install -r requirements.txt
+export HF_TOKEN="your_huggingface_token_here"
+huggingface-cli login
+python training/grpo_train_with_logging_curriculum.py
+```
+
 
 ## Citation / Inspiration
 
